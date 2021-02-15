@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(2, 2); 
         }
         
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.F1))
         {
             SceneManager.LoadScene("SampleScene");
         }
