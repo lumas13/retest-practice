@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
 
-        StartCoroutine(WaitSpawnCoin(2));
+        StartCoroutine(WaitSpawnCoin(2)); //Spawn according to time given
         StartCoroutine(WaitSpawnSaw(3));
     }
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         
     }
     
-    private IEnumerator WaitSpawnCoin (float waitTime)
+    private IEnumerator WaitSpawnCoin (float waitTime) //spawner
     {
         Vector3 coin1Pos = new Vector3(-4.48f, 11.75f, 0f);
         Vector3 coin2Pos = new Vector3(-0.8f, 9.45f, 0f);

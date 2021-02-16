@@ -15,21 +15,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector2.left * playerSpeed * Time.deltaTime);
-            transform.localScale = new Vector2(-2, 2);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector2.right * playerSpeed * Time.deltaTime);
-            transform.localScale = new Vector2(2, 2); 
-        }
-        
-        if (Input.GetKey(KeyCode.F1))
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
+        PlayerMovement();
+        Restart();
         
         //Destroy coin/saw (done)
         //Background sound
@@ -37,11 +24,33 @@ public class PlayerController : MonoBehaviour
         //Press r to restart (done)
     }
 
+    private void PlayerMovement()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Translate(Vector2.left * playerSpeed * Time.deltaTime); //Player movement
+            transform.localScale = new Vector2(-2, 2); //Player turning left and right
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(Vector2.right * playerSpeed * Time.deltaTime);
+            transform.localScale = new Vector2(2, 2);
+        }
+    }
+
+    private void Restart()
+    {
+        if (Input.GetKey(KeyCode.F1)) //Restart the scene
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //Destory the collided object
         }
 
         if (collision.gameObject.CompareTag("Saw"))

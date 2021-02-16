@@ -9,13 +9,13 @@ public class Dropper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject,3);
+        Destroy(gameObject,3); //destory the game object after 3 seconds
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.up * -dropSpeed * Time.deltaTime;
+        transform.position += transform.up * -dropSpeed * Time.deltaTime; //drops the object
     }
     
 }
