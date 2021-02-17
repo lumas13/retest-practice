@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Restart();   
     }
     
     private IEnumerator WaitSpawnCoin (float waitTime) //spawner
@@ -55,6 +56,13 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             Instantiate(Saw1, saw1Pos, Quaternion.identity);
             Instantiate(Saw2, saw2Pos, Quaternion.identity);
+        }
+    }
+    private void Restart()
+    {
+        if (Input.GetKey(KeyCode.F1)) //Restart the scene
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 

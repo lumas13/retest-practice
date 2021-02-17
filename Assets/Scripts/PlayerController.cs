@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-        Restart();
     }
 
     private void PlayerMovement()
@@ -49,14 +48,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("idle", false);
-        }
-    }
-
-    private void Restart()
-    {
-        if (Input.GetKey(KeyCode.F1)) //Restart the scene
-        {
-            SceneManager.LoadScene("SampleScene");
         }
     }
 
